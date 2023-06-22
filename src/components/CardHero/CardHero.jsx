@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Card, Name, Art, Rate, Star, Power, Description, Details } from "./CardHero.style";
 import { Link } from "react-router-dom";
-import { GrStar } from 'react-icons/Gr';
+import { GrStar } from 'react-icons/gr';
 
 function getRandomColor() {
   const letters = '0123456789ABCDEF';
