@@ -34,6 +34,14 @@ export const DetailsCard = styled.div`
                 margin-top: 10px;
             }
         }
+
+        #right-div {
+            width: 100%;
+
+            h1 {
+                margin-top: 10px;
+            }
+        }
     }
 
     @media only screen and (max-width: 620px) {
@@ -82,4 +90,13 @@ export const CardInfo = styled.div`
             font-size: .9rem;
         }
     }
+`
+
+export const Back = styled.div`
+    margin: 20px 0 0 40px;
+    color: white;
+    background-color: #5815c4;
+    width: fit-content;
+    padding: 4px;
+    border-radius: 4px;
 `

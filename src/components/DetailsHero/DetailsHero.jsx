@@ -1,11 +1,15 @@
 import React from 'react'
-import { DetailsCard, CardInfo } from './DetailsHero.style';
+import { DetailsCard, CardInfo, Back } from './DetailsHero.style';
 import { Background } from '../Grid/Grid.style';
 import { Art } from '../CardHero/CardHero.style';
+import { Link } from "react-router-dom";
 
 export default function DetailsHero({ appearance, img, biography, connections, work }) {
     return (
         <>
+            <Link to='/' style={{textDecoration: 'none'}}>
+                <Back> 🔙 Back to deck</Back>
+            </Link>
             <Background src='/bg.png'></Background>
             <DetailsCard>
                 <div id='left-div'>
@@ -26,8 +30,8 @@ export default function DetailsHero({ appearance, img, biography, connections, w
                         </ul>
                     </CardInfo>
                 </div>
-                <Art src={img} id='image'/>
-                <div id='right-div'> 
+                <Art src={img} id='image' />
+                <div id='right-div'>
                     <CardInfo>
                         <h1>Biography</h1>
                         <ul>

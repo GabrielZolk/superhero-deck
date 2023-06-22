@@ -1,20 +1,9 @@
 import { useState } from 'react';
-import { Card, Name, Art, Rate, Star, Power, Description, Details } from "./CardHero.style";
+import { Card, Name, Art, Rate, Power, Description, Details } from "./CardHero.style";
 import { Link } from "react-router-dom";
-import { GrStar } from 'react-icons/gr';
-
-function getRandomColor() {
-  const letters = '0123456789ABCDEF';
-  let color = '#';
-  for (let i = 0; i < 6; i++) {
-    color += letters[Math.floor(Math.random() * 16)];
-  }
-  return color;
-}
-
-function capitalizeFirstLetter(string) {
-  return string.charAt(0).toUpperCase() + string.slice(1);
-}
+import { calculateRate } from '../../utils/CalculateRate';
+import { renderPowerStats } from '../../utils/RenderPowerStats';
+import { getRandomColor } from '../../utils/generateRandomColor';
 
 export default function CardHero({ id, name, img, averagePowerstats, powerstats }) {
   const formattedPowerstats = averagePowerstats.toFixed(1);
@@ -22,34 +11,8 @@ export default function CardHero({ id, name, img, averagePowerstats, powerstats 
 
   const [isFlipped, setIsFlipped] = useState(false);
 
-  const calculateRate = (average) => {
-    const componentCount = Math.floor(average / 10);
-    const components = [];
-
-    for (let i = 0; i < componentCount; i++) {
-      components.push(<Star key={i}><GrStar /></Star>);
-    }
-
-    return components;
-  };
-
   const handleClick = () => {
     setIsFlipped(!isFlipped);
-  };
-
-  const handleDetailsClick = () => {
-    localStorage.setItem('selectedCardId', id);
-  };
-
-  const renderPowerStats = () => {
-    return Object.entries(powerstats).map(([statName, statValue]) => {
-      const formattedStatName = capitalizeFirstLetter(statName);
-      return (
-        <li key={statName} style={{ background: 'black', padding: '6px', borderRadius: '10px', marginBottom: '7px', border: '1px solid white' }}>
-          <em>{formattedStatName}: {statValue}</em>
-        </li>
-      );
-    });
   };
 
   return (
@@ -60,11 +23,11 @@ export default function CardHero({ id, name, img, averagePowerstats, powerstats 
           <Description>
             <h3><em>PowerStats</em></h3>
             <ul>
-              {renderPowerStats()}
+            {renderPowerStats(powerstats)}
             </ul>
           </Description>
           <Link to={`/details/${id}`}>
-            <Details onClick={handleDetailsClick}>Details</Details>
+            <Details>Details</Details>
           </Link>
         </>
       ) : (
