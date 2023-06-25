@@ -44,3 +44,20 @@ export const Input = styled.input`
     border-radius: 8px;
     background: linear-gradient(to right, #eb3e3e, #00009b);
 `
+
+export const Select = styled.select`
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 20px;
+    border-radius: 8px;
+    outline: none;
+    background: linear-gradient(to right, #eb3e3e, #00009b);
+    color: white;
+    border: 2px solid white;
+
+    option {
+        background: black;
+    }
+`
