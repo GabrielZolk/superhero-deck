@@ -29,3 +29,18 @@ export const Background = styled.img`
     min-height: 100vh;
     min-width: 100vw;
 `
+
+export const Input = styled.input`   
+    width: 90%;
+    padding: 10px;
+    margin: 20px auto;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: red;
+    outline: none;
+    border: 2px solid white;
+    border-radius: 8px;
+    background: linear-gradient(to right, #eb3e3e, #00009b);
+`
